@@ -248,7 +248,7 @@ const Page = () => {
           </div>
         </div>
       </div>
-      {/* <Drawer isOpen={isDrawerOpen} onClose={toggleDrawer}>
+      <Drawer isOpen={isDrawerOpen} onClose={toggleDrawer}>
         <div className="my-3 flex justify-between items-center">
           <div className="flex items-center gap-2">
             <h2 className="text-lg font-semibold">Filters your orders</h2>
@@ -281,7 +281,7 @@ const Page = () => {
           </div>
         </div>
         <Filter onFilterChange={handleFilterChange} />
-      </Drawer> */}
+      </Drawer>
       <hr className="my-3" />
       <Table
         columns={columns}
@@ -289,11 +289,11 @@ const Page = () => {
         pageSize={pageSize}
         currentPage={currentPage}
       />
-      {/* <Pagination
+      <Pagination
         currentPage={currentPage}
         totalPages={totalPages}
         onPageChange={handlePageChange}
-      /> */}
+      />
       
     </div>
   );
