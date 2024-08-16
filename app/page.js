@@ -110,9 +110,8 @@ const Page = () => {
         ...filters,
       }).toString();
 
-      const res = await fetch(`/api?${query}`);
+      const res = await fetch(`/api/orders?${query}`);
       const { data, meta } = await res.json();
-      console.log("🚀 ~ fetchOrders ~ data:", data)
 
       setOrders(data);
       setTotalPages(meta?.totalPages);
