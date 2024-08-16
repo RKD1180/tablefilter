@@ -1,3 +1,4 @@
+"use server"
 import { promises as fs } from 'fs';
 import path from 'path';
 
@@ -5,6 +6,7 @@ export async function GET(request) {
   try {
     const filePath = path.join(process.cwd(), 'components', 'demo', 'test-orders.json');
     const data = await fs.readFile(filePath, 'utf8');
+    console.log("🚀 ~ GET ~ data:", data)
     const parsedData = JSON.parse(data);
 
     const { searchParams } = new URL(request.url);

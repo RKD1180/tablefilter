@@ -112,6 +112,7 @@ const Page = () => {
 
       const res = await fetch(`/api?${query}`);
       const { data, meta } = await res.json();
+      console.log("🚀 ~ fetchOrders ~ data:", data)
 
       setOrders(data);
       setTotalPages(meta?.totalPages);
