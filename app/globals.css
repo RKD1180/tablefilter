@@ -17,17 +17,35 @@
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  color: #67686d;
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+.textColor{
+  color: #67686d;
+}
+.fontColor{
+  color: rgba(5, 6, 15, 0.6);
+  @apply font-medium
+}
+
+.selectedChipFont{
+  color: rgba(33, 102, 240, 1);
+  @apply font-medium
+}
+.selectedChipCount{
+  background-color: rgba(33, 102, 240, 1);
+  color: white;
+  @apply font-medium rounded px-1
+}
+.selectedChip{
+  background-color: rgba(243, 248, 255, 1);
+}
+.unselctChip{
+  background-color: rgba(241, 244, 249, 1);
+  @apply font-medium rounded px-1
 }
