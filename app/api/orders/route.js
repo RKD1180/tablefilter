@@ -2,12 +2,15 @@
 import { promises as fs } from 'fs';
 import path from 'path';
 
+export const dynamic = 'force-dynamic';
+
 export async function GET(request) {
   try {
     // Read the JSON file
     const filePath = path.join(process.cwd(), 'components', 'demo', 'test-orders.json');
     const data = await fs.readFile(filePath, 'utf8');
     const parsedData = JSON.parse(data);
+    console.log("🚀 ~ GET ~ parsedData:", parsedData)
 
     // Use request.nextUrl for URL and query parameters
     const url = new URL(request.nextUrl.href);
