@@ -18,7 +18,7 @@ const Table = ({ columns, data }) => {
           </tr>
         </thead>
         <tbody>
-          {data.length > 0 ? (
+          {data?.length > 0 ? (
             data.map((row, rowIndex) => (
               <tr key={rowIndex} className="border-t border-gray-300">
                 {columns.map((column, colIndex) => (

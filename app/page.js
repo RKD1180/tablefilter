@@ -114,7 +114,7 @@ const Page = () => {
       const { data, meta } = await res.json();
 
       setOrders(data);
-      setTotalPages(meta.totalPages);
+      setTotalPages(meta?.totalPages);
     }
 
     fetchOrders();

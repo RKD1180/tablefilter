@@ -44,15 +44,13 @@ export async function GET(request) {
       });
     }
 
-    // Debug: Check filtered data
-    console.log("🚀 ~ GET ~ filteredData:", filteredData);
 
     // Calculate start and end index for pagination
     const startIndex = (page - 1) * limit;
-    const endIndex = Math.min(startIndex + limit, filteredData.length);
+    const endIndex = Math.min(startIndex + limit, filteredData?.length);
 
     // Ensure indexes are within bounds
-    if (startIndex >= filteredData.length) {
+    if (startIndex >= filteredData?.length) {
       return new Response(JSON.stringify({ data: [], meta: {} }), {
         status: 200,
         headers: { 'Content-Type': 'application/json' },
@@ -62,17 +60,14 @@ export async function GET(request) {
     // Slice the data for the requested page
     const paginatedData = filteredData.slice(startIndex, endIndex);
 
-    // Debug: Check paginated data
-    console.log("🚀 ~ GET ~ paginatedData:", paginatedData);
-
     // Return the paginated data along with meta information
     return new Response(
       JSON.stringify({
         data: paginatedData,
         meta: {
-          totalItems: filteredData.length,
+          totalItems: filteredData?.length,
           currentPage: page,
-          totalPages: Math.ceil(filteredData.length / limit),
+          totalPages: Math.ceil(filteredData?.length / limit),
           pageSize: limit,
         },
       }),
@@ -82,9 +77,6 @@ export async function GET(request) {
       }
     );
   } catch (error) {
-    // Log error details for debugging purposes
-    console.error("🚨 ~ GET ~ Error:", error);
-
     return new Response(JSON.stringify({ error: 'Failed to read data. Please try again later.' }), {
       status: 500,
       headers: { 'Content-Type': 'application/json' },
