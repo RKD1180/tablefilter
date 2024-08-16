@@ -248,18 +248,6 @@ const Page = () => {
           </div>
         </div>
       </div>
-      <hr className="my-3" />
-      <Table
-        columns={columns}
-        data={orders}
-        pageSize={pageSize}
-        currentPage={currentPage}
-      />
-      <Pagination
-        currentPage={currentPage}
-        totalPages={totalPages}
-        onPageChange={handlePageChange}
-      />
       <Drawer isOpen={isDrawerOpen} onClose={toggleDrawer}>
         <div className="my-3 flex justify-between items-center">
           <div className="flex items-center gap-2">
@@ -294,6 +282,19 @@ const Page = () => {
         </div>
         <Filter onFilterChange={handleFilterChange} />
       </Drawer>
+      <hr className="my-3" />
+      <Table
+        columns={columns}
+        data={orders}
+        pageSize={pageSize}
+        currentPage={currentPage}
+      />
+      <Pagination
+        currentPage={currentPage}
+        totalPages={totalPages}
+        onPageChange={handlePageChange}
+      />
+      
     </div>
   );
 };
